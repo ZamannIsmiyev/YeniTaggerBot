@@ -21,31 +21,31 @@ spam_chats = []
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply(
-    "**Salam 👋 Men @DBMBOSSdu terefinden yaradılmış tağ botuyam**, Qrupda ve Kanallarda Hamını tağ ede bilerem 👻\nBas **/help** daha çox melumatı elde ede bilersiniz",
+    "**Salam 👋 Men @WerabliAnlar terefinden yaradılmış tağ botuyam**, Qrupda ve Kanallarda Hamını tağ ede bilerem 👻\nBas **/help** daha çox melumatı elde ede bilersiniz",
     link_preview=False,
     buttons=(
       [
-        Button.url('🇦🇿 Qrup', 'https://t.me/Together_Time'),
-        Button.url('⚜️ Sahib', 'https://t.me/DBMBOSSdu')
+        Button.url('🇦🇿 ASO Rəsmi', 'https://t.me/ASOresmi'),
+        Button.url('⚜️ Sahib', 'https://t.me/ismiyev95')
       ]
     )
   )
 
-@client.on(events.NewMessage(pattern="^/help$"))
+@client.on(events.NewMessage(pattern="^/komek$"))
 async def help(event):
-  helptext = "**Botun menyusuna xoş gelmisiz**\n\nKamandalar: /all\n__Bu komandanı Tağ etmek sebebi ile işlede bilersiniz.__\n`Meselen: /all Sabahınız xeyir!`\n__Bu komandanı kimese yanıt olaraq istifade edin ve yaxud tağ sebebini yazın__."
+  helptext = "**Botun menyusuna xoş gelmisiz**\n\nKamandalar: /tag\n__Bu komandanı Tağ etmek sebebi ile işlede bilersiniz.__\n`Meselen: /tag Sabahınız xeyir!`\n__Bu komandanı kimese yanıt olaraq istifade edin ve yaxud tağ sebebini yazın__."
   await event.reply(
     helptext,
     link_preview=False,
     buttons=(
       [
-        Button.url('🇦🇿 Qrup', 'https://t.me/Together_Time'),
-        Button.url('⚜️ Sahib', 'https://t.me/DBMBOSSdu')
+        Button.url('🇦🇿 ASO Rəsmi', 'https://t.me/ASOresmi'),
+        Button.url('⚜️ Sahib', 'https://t.me/ismiyev95')
       ]
     )
   )
   
-@client.on(events.NewMessage(pattern="^/all ?(.*)"))
+@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
@@ -108,7 +108,7 @@ async def mentionall(event):
   except:
     pass
 
-@client.on(events.NewMessage(pattern="^/cancel$"))
+@client.on(events.NewMessage(pattern="^/dur$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
     return await event.respond('__Heç bir proses baş vermir...__')
@@ -117,7 +117,7 @@ async def cancel_spam(event):
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('__Dayandırıldı.__')
+    return await event.respond('__Dayandırıldı🌹 @WerabliAnlar.__')
 
 print(">> BOT STARTED <<")
 client.run_until_disconnected()
