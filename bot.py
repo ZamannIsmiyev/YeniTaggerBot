@@ -21,7 +21,7 @@ spam_chats = []
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply(
-    "**Salam 👋 Men @WerabliAnlar terefinden yaradılmış tağ botuyam**, Qrupda ve Kanallarda Hamını tağ ede bilerem 👻\nBas **/help** daha çox melumatı elde ede bilersiniz",
+    "**Salam 👋 Men @WerabliAnlar terefinden yaradılmış tağ botuyam**, Qrupda ve Kanallarda Hamını tağ ede bilerem 👻\nBas **/komek** daha çox melumatı elde ede bilersiniz",
     link_preview=False,
     buttons=(
       [
@@ -33,7 +33,7 @@ async def start(event):
 
 @client.on(events.NewMessage(pattern="^/komek$"))
 async def help(event):
-  helptext = "**Botun menyusuna xoş gelmisiz**\n\nKamandalar: /tag\n__Bu komandanı Tağ etmek sebebi ile işlede bilersiniz.__\n`Meselen: /tag Sabahınız xeyir!`\n__Bu komandanı kimese yanıt olaraq istifade edin ve yaxud tağ sebebini yazın__."
+  helptext = "**Botun menyusuna xoş gelmisiz**\n\nKamandalar: /all\n__Bu komandanı Tağ etmek sebebi ile işlede bilersiniz.__\n`Meselen: /all Sabahınız xeyir!`\n__Bu komandanı kimese yanıt olaraq istifade edin ve yaxud tağ sebebini yazın__."
   await event.reply(
     helptext,
     link_preview=False,
@@ -45,7 +45,7 @@ async def help(event):
     )
   )
   
-@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
@@ -74,7 +74,7 @@ async def mentionall(event):
     return await event.respond("__Yalnız adminler tağ ede bilerler!__")
   
   if event.pattern_match.group(1) and event.is_reply:
-    return await event.respond("__Tağ sebebini yaz!__")
+    return await event.respond("__Tağ sebebini yaz! @WerabliAnlar 🇦🇿__")
   elif event.pattern_match.group(1):
     mode = "text_on_cmd"
     msg = event.pattern_match.group(1)
@@ -108,7 +108,7 @@ async def mentionall(event):
   except:
     pass
 
-@client.on(events.NewMessage(pattern="^/dur$"))
+@client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
     return await event.respond('__Heç bir proses baş vermir...__')
